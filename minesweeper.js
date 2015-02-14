@@ -4,7 +4,7 @@ $(document).ready(function(){
     newGame();
     
     function newGame(){
-        logic.init(game.LEVELS.BEGINNER);
+        logic.init(game.LEVELS.EXPERT);
         initGame();
         renderGame();
         bindEvents();
@@ -23,6 +23,7 @@ $(document).ready(function(){
     function renderGame(){
         
         renderBoard();
+        renderStatusPanel();
     }
     
     function initStatusPanel(){
@@ -43,6 +44,11 @@ $(document).ready(function(){
         $statusPanel.append($smily);
         
         $('.game').append($statusPanel);
+    }
+    
+    function renderStatusPanel(){
+        
+        $('.minesCounter').text(logic.flagsLeft());
     }
 
     function initBoard(){
@@ -136,7 +142,7 @@ $(document).ready(function(){
                 case 3:
                     logic.flagCell(x, y);
                     break;
-            };
+            };  
             
             
             renderGame();
