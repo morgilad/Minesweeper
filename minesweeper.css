@@ -62,7 +62,6 @@ h1 {
     width: 22px;
     height: 22px;
     margin: auto;
-
 }
 
 .happy {
@@ -110,13 +109,6 @@ h1 {
     text-align: center;
     font-weight: bold;
     vertical-align: top;
-}
-
-@media only screen and (max-device-width: 480px) {
-    .cell {
-        width: 40px;
-        height: 40px;
-    }
 }
 
 .open {
@@ -189,6 +181,53 @@ h1 {
 
 .number8 {
     color: Silver;
+}
+
+@media only screen and (max-width: 480px){
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 24px;
+    }
+
+    .row {
+        height: 30px;
+    }
+    .flag {
+        background-size: 20px;
+    }
+
+    .mine {
+        background-size: 20px;
+    }
+    .counter {
+        width: 40px;
+        font-size: 28px;
+        height: 30px;
+    }
+    .smily {
+        width: 30px;
+        height: 30px;
+    }
+    .happy {
+        background: url('content/images/smily_sprite.jpg') 0 0;
+        background-size: 60px;
+    }
+
+    .shocked {
+        background: url('content/images/smily_sprite.jpg') -29px 0;
+        background-size: 60px;
+    }
+
+    .sunny {
+        background: url('content/images/smily_sprite.jpg') 0 -29px;
+        background-size: 60px;
+    }
+
+    .sad {
+        background: url('content/images/smily_sprite.jpg') -29px -29px;
+        background-size: 60px;
+    }
 }
 
 @font-face {

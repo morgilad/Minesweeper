@@ -4,7 +4,7 @@ $(document).ready(function(){
     newGame();
     
     function newGame(){
-        logic.init(game.LEVELS.EXPERT);
+        logic.init(game.LEVELS.BEGINNER);
         initGame();
         renderGame();
         bindEvents();
