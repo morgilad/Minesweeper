@@ -1,1 +1,1 @@
-Minesweeper game mage with javascript, html and css.
+Minesweeper game made with javascript, html and css.
