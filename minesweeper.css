@@ -37,7 +37,7 @@ h1 {
 }
 
 .counter {
-    width: 30px;
+    width: 36px;
     background-color: Black;
     color: red;
     border: 2px black solid;
@@ -194,7 +194,7 @@ h1 {
         height: 30px;
     }
     .flag {
-        background-size: 20px;
+            background-size: 20px;
     }
 
     .mine {

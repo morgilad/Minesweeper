@@ -48,7 +48,8 @@ $(document).ready(function(){
     
     function renderStatusPanel(){
         
-        $('.minesCounter').text(logic.flagsLeft());
+        var flagsLeftText = parseNumber(logic.flagsLeft())
+        $('.minesCounter').text(flagsLeftText);
     }
 
     function initBoard(){
@@ -206,5 +207,9 @@ $(document).ready(function(){
         else
             $cell.addClass('closed flag');
         
+    }
+    
+    function parseNumber(num){
+        return ("00" + num).slice(-3);
     }
 })
