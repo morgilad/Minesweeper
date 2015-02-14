@@ -33,16 +33,17 @@ $(document).ready(function(){
         
         // mine counter
         $mineCounter = $(document.createElement('div')).addClass('counter minesCounter').text(logic.flagsLeft());
-        $statusPanel.append($mineCounter);
         
-        // mine counter
-        $timer = $(document.createElement('div')).addClass('counter timer').text(0);
-        $statusPanel.append($timer);
+        // timer
+        $timer = $(document.createElement('div')).addClass('counter timer').text(parseNumber(0));
+        setInterval(function(){
+            $timer.text(parseNumber(logic.time()));
+        }, 1000);
         
         // smily
         $smily = $(document.createElement('div')).addClass('smily happy');
-        $statusPanel.append($smily);
         
+        $statusPanel.append($mineCounter).append($timer).append($smily);
         $('.game').append($statusPanel);
     }
     

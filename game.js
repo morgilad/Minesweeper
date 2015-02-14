@@ -1,7 +1,7 @@
 var game = {};
 
 game.logic = function(){
-    var _board, _flagsLeft, _state, _firstMove, _totalFlags, _openCells, _boardSize;
+    var _board, _flagsLeft, _state, _firstMove, _totalFlags, _openCells, _boardSize, _time, _interval;
     var self = this;
 
     // region privates
@@ -35,6 +35,8 @@ game.logic = function(){
         _openCells = 0;
         _state = game.STATES.ALIVE;
         _firstMove = true;
+        _time = 0;
+        clearInterval(_interval);
     }
 
     this.exposeCell = function exposeCell(x, y){
@@ -45,6 +47,9 @@ game.logic = function(){
         if (_firstMove){
             mineTheBoard(cell)
             _firstMove = false;
+            _interval = setInterval(function(){
+                _time++;
+            }, 1000)
         }
 
         // do nothing in case the cell is already opened or flagged
@@ -58,6 +63,7 @@ game.logic = function(){
         // losing the game in case the selected cell is mined
         if (cell.isMined()){
             _state = game.STATES.LOSE;
+            clearInterval(_interval);
             return;
         }
         
@@ -81,6 +87,7 @@ game.logic = function(){
         
         if (_openCells + _totalFlags == _boardSize){
             _state = game.STATES.WIN;
+            clearInterval(_interval);
         }
 
         return;
@@ -120,6 +127,10 @@ game.logic = function(){
     
     this.flagsLeft = function(){
         return _flagsLeft;
+    }
+    
+    this.time = function(){
+        return _time;
     }
     // endregion
 }
